@@ -1,0 +1,15 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+}
+
+
+.container{
+  max-width: 120rem;
+  margin: 0 auto;
+  width: 95%;
+}
