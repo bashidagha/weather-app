@@ -1,19 +1,42 @@
-import React from 'react'
-import { photoOfWeather } from '../utils/Utils'
-import './dailyweather.css'
+import React from "react";
+import store from "../store/index";
+import { photoOfWeather } from "../utils/Utils";
+import "./dailyweather.css";
 
 const DailyWeather = (props) => {
+  const mainPhoto = photoOfWeather(props.weather.weather[0].id);
 
-  const mainPhoto = photoOfWeather(props.weather.weather[0].id)
+  const degree = props.weather.main.temp - 273.15;
 
+  const state = store.getState();
+  const cityName = state.city.name;
+  const a = state.city.currentDate;
+
+  const monthPlusDay = `${a.day.slice(0, 3)}.${a.dayOfMonth} ${a.month.slice(
+    0,
+    3
+  )}`;
 
   return (
-    <div className='current__weather'>
-      
-      
-      <img src={mainPhoto} alt="main"></img>
-    </div>
-  )
-}
+    <div className="current__weather">
+      <div className="current__bg">
+        <img src={mainPhoto} alt="main" className="current__photo"></img>
+        
+      </div>
+      <div className="current__degree">
+          {degree.toFixed(0)}
+          <span>&#8451;</span>
+        </div>
+        <div className="current__condition">
+          {props.weather.weather[0].main}
+        </div>
 
-export default DailyWeather
+        <div className="current__otherdata">
+          <p>Today&nbsp;&nbsp;&#8226;&nbsp;&nbsp;{monthPlusDay}</p>
+          <p>{cityName}</p>
+        </div>
+    </div>
+  );
+};
+
+export default DailyWeather;

@@ -1,3 +1,58 @@
-.current__weather{
-    background: #1E213A;
+.current__weather {
+  background: #1e213a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem 0;
 }
+
+.current__photo {
+  width: 12rem;
+  display: block;
+  margin: 0 auto;
+}
+
+.current__bg {
+  background-image: url("../assets/Cloud-background.png");
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #1e213a;
+  background-blend-mode: overlay;
+  background-position: top;
+  padding: 3rem 0 8rem 0;
+  text-align: center;
+}
+
+.current__degree {
+  font-weight: 500;
+  font-size: 144px;
+  line-height: 169px;
+  color: #e7e7eb;
+}
+
+.current__degree span {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 42px;
+  color: #a09fb1;
+}
+
+.current__condition {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 42px;
+  text-align: center;
+  color: #a09fb1;
+}
+
+.current__otherdata {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #88869d;
+  text-align: center;
+  text-transform: capitalize;
+}
+
