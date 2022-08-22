@@ -1,6 +1,6 @@
 import store from "./index";
 import { cityActions } from "./city-slice";
-import { ExtractDateInfo } from "../components/Utils";
+import { ExtractDateInfo } from "../utils/Utils";
 
 //5 days
 export const fetchCityWeather = () => {

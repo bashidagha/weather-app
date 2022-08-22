@@ -15,11 +15,8 @@ function App() {
     dispatch(fetchCityWeather());
   }, [dispatch]);
 
-  const cityCount = useSelector((state) => state.city.cityForecastWeather);
-
   return (
-    <div className="container">
-      {cityCount && <p>{cityCount.cnt}</p>}
+    <div>
       <Weather />
     </div>
   );

@@ -1,4 +1,14 @@
-import store from "../store";
+import store from "../store/index";
+import clear from "../assets/Clear.png";
+import heavyCloud from "../assets/HeavyCloud.png";
+import lightCloud from "../assets/LightCloud.png";
+import Thunder from "../assets/Thunderstorm.png";
+import heavyRain from "../assets/HeavyRain.png";
+import lightRain from "../assets/LightRain.png";
+import hail from "../assets/Hail.png";
+import shower from "../assets/Shower.png";
+import sleet from "../assets/Sleet.png";
+import snow from "../assets/Snow.png";
 
 const monthNames = [
   "January",
@@ -70,7 +80,6 @@ export function ExtractDateInfo(dateSecond) {
 }
 
 export function Extract5DayWeather(data3HoursForecast) {
-
   const state = store.getState();
   const current = state.city.currentDate;
   let temp;
@@ -97,6 +106,38 @@ export function Extract5DayWeather(data3HoursForecast) {
     }
   }
 
-
   return extractedDate;
+}
+
+export function photoOfWeather(conditionId) {
+  if (conditionId === 800) {
+    return clear;
+  } else if ([801, 802].indexOf(conditionId) > -1) {
+    return lightCloud;
+  } else if ([803, 804].indexOf(conditionId) > -1) {
+    return heavyCloud;
+  } else if (
+    [...Array(33).keys()].map((a) => a + 200).indexOf(conditionId) > -1
+  ) {
+    return Thunder;
+  } else if (conditionId === 500) {
+    return lightRain;
+  } else if (
+    [...Array(20).keys()].map((a) => a + 501).indexOf(conditionId) > -1
+  ) {
+    return heavyRain;
+  } else if (
+    [...Array(4).keys()].map((a) => a + 521).indexOf(conditionId) > -1
+  ) {
+    return shower;
+  } else if (
+    [...Array(23).keys()].map((a) => a + 600).indexOf(conditionId) > -1
+  ) {
+    if (conditionId === 611) {
+      return sleet;
+    }
+    return snow;
+  } else {
+    return clear;
+  }
 }
