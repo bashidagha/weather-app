@@ -1,15 +1,16 @@
-import React from 'react'
-
-
-
+import React from "react";
 
 const SingleDayWeather = (props) => {
+  console.log(props.weather);
 
   return (
-    <p>
-      {props.weather.dt}
-    </p>
-  )
-}
+    <div>
+      <p>{props.weather.dayName}</p>
+      <p>{props.weather.dayofMonth}</p>
+      <p>{props.weather.month}</p>
+      <p>{props.weather.visibility}</p>
+    </div>
+  );
+};
 
-export default SingleDayWeather
+export default SingleDayWeather;

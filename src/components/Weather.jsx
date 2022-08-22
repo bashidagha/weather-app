@@ -3,23 +3,18 @@ import { useSelector } from "react-redux";
 import SingleDayWeather from "./SingleDayWeather";
 import { Extract5DayWeather } from "./Utils";
 
-
 const Weather = () => {
-
-  const data3HoursForecast = useSelector((state) => state.city.cityForecastWeather);
+  const data3HoursForecast = useSelector(
+    (state) => state.city.cityForecastWeather
+  );
 
   function WeatherForecastDays() {
-
-
-    const showndata = Extract5DayWeather(data3HoursForecast)
+    const showndata = Extract5DayWeather(data3HoursForecast);
 
     return (
       <>
-        {showndata.data.map((dayWeather) => (
-
-
-        
-          <SingleDayWeather weather={dayWeather} key={dayWeather.dt}/>
+        {showndata.map((weatherOfTheDay) => (
+          <SingleDayWeather weather={weatherOfTheDay} key={weatherOfTheDay.dt} />
         ))}
       </>
     );

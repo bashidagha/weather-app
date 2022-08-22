@@ -58,8 +58,10 @@ export function ExtractDateInfo(dateSecond) {
   const year = date.getFullYear();
 
   const hours = date.getHours();
+  const dayOfMonth = date.getDate();
 
   return {
+    dayOfMonth: dayOfMonth,
     hours: hours,
     month: month,
     day: day,
@@ -68,7 +70,7 @@ export function ExtractDateInfo(dateSecond) {
 }
 
 export function Extract5DayWeather(data3HoursForecast) {
-  //extract weather in 10 p.m
+
   const state = store.getState();
   const current = state.city.currentDate;
   let temp;
@@ -85,10 +87,16 @@ export function Extract5DayWeather(data3HoursForecast) {
       temp.hours === 10 ||
       temp.hours === 11
     ) {
-      extractedDate[count] = data3HoursForecast.list[i];
+      extractedDate[count] = {
+        ...data3HoursForecast.list[i],
+        dayName: daysFormatted[count],
+        month: temp.month,
+        dayofMonth: temp.dayOfMonth,
+      };
       count++;
     }
   }
 
-  return { data: extractedDate, day: formattedDayNames };
+
+  return extractedDate;
 }
