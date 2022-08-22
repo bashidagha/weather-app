@@ -32,7 +32,8 @@ export const fetchCityWeather = () => {
   };
 };
 
-//current wather
+
+
 export const fetchCityCurrentWeather = () => {
   const state = store.getState();
   const cityName = state.city.name;

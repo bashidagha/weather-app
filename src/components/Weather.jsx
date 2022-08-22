@@ -1,29 +1,31 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import SingleDayWeather from "./SingleDayWeather";
-import { getDateFromDay } from "./Utils";
+import { Extract5DayWeather } from "./Utils";
 
 
 const Weather = () => {
-  const DailyWeather = useSelector((state) => state.city.cityForecastWeather);
+
+  const data3HoursForecast = useSelector((state) => state.city.cityForecastWeather);
 
   function WeatherForecastDays() {
 
-    const days = getDateFromDay(DailyWeather.list[0].dt_txt);
+
+    const showndata = Extract5DayWeather(data3HoursForecast)
 
     return (
       <>
-        {DailyWeather.list.map((dayWeather, index) => (
+        {showndata.data.map((dayWeather) => (
 
 
         
-          <SingleDayWeather weather={dayWeather} day={days[index]} key={dayWeather.dt}/>
+          <SingleDayWeather weather={dayWeather} key={dayWeather.dt}/>
         ))}
       </>
     );
   }
 
-  return <>{DailyWeather && <WeatherForecastDays />}</>;
+  return <>{data3HoursForecast && <WeatherForecastDays />}</>;
 };
 
 export default Weather;

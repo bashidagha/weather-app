@@ -1,3 +1,5 @@
+import store from "../store";
+
 const monthNames = [
   "January",
   "February",
@@ -28,8 +30,7 @@ const dayNames = [
   "Thursday",
 ];
 
-export function getDateFromDay(now) {
-
+function formattedDayNames(now) {
   const dateObject = new Date(now);
 
   let day = dayNames[dateObject.getDay()];
@@ -47,10 +48,6 @@ export function getDateFromDay(now) {
   return formatedDay;
 }
 
-export function Extract5Day(weatherJSON) {
-  //extract weather in 10 p.m
-}
-
 export function ExtractDateInfo(dateSecond) {
   const milisecond = dateSecond * 1000;
 
@@ -60,9 +57,38 @@ export function ExtractDateInfo(dateSecond) {
   const day = dayNames[date.getDay()];
   const year = date.getFullYear();
 
+  const hours = date.getHours();
+
   return {
+    hours: hours,
     month: month,
     day: day,
     year: year,
   };
+}
+
+export function Extract5DayWeather(data3HoursForecast) {
+  //extract weather in 10 p.m
+  const state = store.getState();
+  const current = state.city.currentDate;
+  let temp;
+  let extractedDate = new Array(5);
+  let count = 0;
+
+  const daysFormatted = formattedDayNames(current);
+
+  for (let i = 0; i < 40; i++) {
+    temp = ExtractDateInfo(data3HoursForecast.list[i].dt);
+
+    if (
+      (temp.day !== current.day && temp.hours === 9) ||
+      temp.hours === 10 ||
+      temp.hours === 11
+    ) {
+      extractedDate[count] = data3HoursForecast.list[i];
+      count++;
+    }
+  }
+
+  return { data: extractedDate, day: formattedDayNames };
 }
