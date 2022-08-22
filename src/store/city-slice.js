@@ -2,16 +2,29 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const citySlice = createSlice({
   name: "city",
-  initialState: { name: "tehran", citySearch: false, cityWeather: null },
+  initialState: {
+    name: "tehran",
+    citySearch: false,
+    currentDate: null,
+    cityForecastWeather: null,
+    cityCurrentWeather: null,
+  },
   reducers: {
     changeCity(state, action) {
       state.name = action.payload;
     },
 
-    setCityWeather(state, action) {
-      state.cityWeather = action.payload;
+    setCityForecastWeather(state, action) {
+      state.cityForecastWeather = action.payload;
     },
 
+    setCityCurrentWeather(state, action) {
+      state.cityCurrentWeather = action.payload;
+    },
+
+    setCurrentDate(state, action) {
+      state.currentDate = action.payload;
+    },
     showCitySearch(state) {
       state.citySearch = true;
     },
