@@ -1,9 +1,9 @@
 .current__weather {
-  background: #1e213a;
+  background: var(---color-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
   padding: 4rem 0;
 }
 
@@ -18,7 +18,7 @@
   width: 100%;
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: #1e213a;
+  background-color: var(---color-bg);
   background-blend-mode: overlay;
   background-position: top;
   padding: 3rem 0 8rem 0;
@@ -29,14 +29,13 @@
   font-weight: 500;
   font-size: 144px;
   line-height: 169px;
-  color: #e7e7eb;
 }
 
 .current__degree span {
   font-weight: 600;
   font-size: 36px;
   line-height: 42px;
-  color: #a09fb1;
+  color: var(---color-secondary);
 }
 
 .current__condition {
@@ -44,7 +43,7 @@
   font-size: 36px;
   line-height: 42px;
   text-align: center;
-  color: #a09fb1;
+  color: var(---color-secondary);
 }
 
 .current__otherdata {
@@ -53,6 +52,11 @@
   line-height: 21px;
   color: #88869d;
   text-align: center;
-  text-transform: capitalize;
 }
 
+
+.current__otherdata span{
+    font-size: 2rem;
+    margin-right: 0.5rem;
+    vertical-align: bottom;
+}

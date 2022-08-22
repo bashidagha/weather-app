@@ -12,7 +12,7 @@ const DailyWeather = (props) => {
   const cityName = state.city.name;
   const a = state.city.currentDate;
 
-  const monthPlusDay = `${a.day.slice(0, 3)}.${a.dayOfMonth} ${a.month.slice(
+  const monthPlusDay = `${a.day.slice(0, 3)},${a.dayOfMonth} ${a.month.slice(
     0,
     3
   )}`;
@@ -21,20 +21,20 @@ const DailyWeather = (props) => {
     <div className="current__weather">
       <div className="current__bg">
         <img src={mainPhoto} alt="main" className="current__photo"></img>
-        
       </div>
       <div className="current__degree">
-          {degree.toFixed(0)}
-          <span>&#8451;</span>
-        </div>
-        <div className="current__condition">
-          {props.weather.weather[0].main}
-        </div>
+        {degree.toFixed(0)}
+        <span>&#8451;</span>
+      </div>
+      <div className="current__condition">{props.weather.weather[0].main}</div>
 
-        <div className="current__otherdata">
-          <p>Today&nbsp;&nbsp;&#8226;&nbsp;&nbsp;{monthPlusDay}</p>
-          <p>{cityName}</p>
-        </div>
+      <div className="current__otherdata">
+        <p>Today&nbsp;&nbsp;&#8226;&nbsp;&nbsp;{monthPlusDay}</p>
+        <p>
+          <span class="material-icons">location_on</span>
+          {cityName}
+        </p>
+      </div>
     </div>
   );
 };

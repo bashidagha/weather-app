@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { Extract5DayWeather } from "../utils/Utils";
 import DailyWeather from "./DailyWeather";
 import SingleDayWeather from "./SingleDayWeather";
+import './weather.css'
+
 
 const Weather = () => {
   const data3HoursForecast = useSelector(
@@ -19,13 +21,15 @@ const Weather = () => {
 
     return (
       <>
+      
+          <DailyWeather weather={currentWeather}/>
+        
+        <section className="weather__details">
+        <SingleDayWeather weathers={showndata}/>
+        </section>
 
-        <DailyWeather weather={currentWeather}/>
-
-
-        {showndata.map((weatherOfTheDay) => (
-          <SingleDayWeather weather={weatherOfTheDay} key={weatherOfTheDay.dt} />
-        ))}
+        
+                
       </>
     );
   }

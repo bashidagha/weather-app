@@ -1,3 +1,9 @@
+:root{
+  ---color-primary: #E7E7EB;
+  ---color-secondary: #A09FB1;
+  ---color-bg: #1E213A;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -7,11 +13,19 @@ body {
   font-weight: 500;
   margin: 0;
   padding: 0;
+  color: var(---color-primary);
 }
 
+.material-icons{
+  font-family: 'Material Icons';
+}
 
 .container{
   max-width: 120rem;
   margin: 0 auto;
   width: 95%;
+}
+
+img{
+  max-width: 100%;
 }

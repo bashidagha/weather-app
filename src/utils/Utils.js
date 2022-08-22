@@ -141,3 +141,6 @@ export function photoOfWeather(conditionId) {
     return clear;
   }
 }
+
+
+
