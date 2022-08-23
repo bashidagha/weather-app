@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Extract5DayWeather } from "../utils/Utils";
 import DailyWeather from "./DailyWeather";
-import SingleDayWeather from "./SingleDayWeather";
+import Forecast5DayWeather from "./Forecast5DayWeather";
 import TodayWeatherHighlight from "./TodayWeatherHighlight";
 import styles from "./weather.module.css";
 
@@ -19,7 +19,7 @@ const Weather = () => {
         <DailyWeather weather={currentWeather} />
 
         <section className={styles.weather__details}>
-          <SingleDayWeather weathers={showndata} />
+          <Forecast5DayWeather weathers={showndata} />
 
           <TodayWeatherHighlight weather={currentWeather} />
 

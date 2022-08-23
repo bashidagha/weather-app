@@ -5,7 +5,7 @@ import styles from './dailyweather.module.css';
 
 
 const DailyWeather = (props) => {
-  const mainPhoto = photoOfWeather(props.weather.weather.code);
+  const mainPhoto = photoOfWeather(props.weather.weather.icon);
 
   const degree = props.weather.temp;
 
