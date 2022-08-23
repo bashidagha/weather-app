@@ -11,8 +11,14 @@
   color: #a09fb1;
 }
 
-.footer__owner a{
-    color: inherit;
+.footer__owner a {
+  color: inherit;
+}
+
+@media (max-width: 650px) {
+  .hideInMobile {
+    display: none;
+  }
 }
 
 @media (min-width: 650px) {

@@ -1,7 +1,10 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import store from "../store/index";
 import { photoOfWeather } from "../utils/Utils";
 import styles from "./dailyweather.module.css";
+import {showCitySearch} from '../store/city-actions'
+import { cityActions } from "../store/city-slice";
 
 const DailyWeather = (props) => {
   const mainPhoto = photoOfWeather(props.weather.weather.icon);
@@ -12,13 +15,20 @@ const DailyWeather = (props) => {
   const cityName = state.city.name;
   const a = state.city.currentDate;
 
+
   const monthPlusDay = `${a.day.slice(0, 3)},${a.dayOfMonth} ${a.month.slice(
     0,
     3
   )}`;
 
+  const dispatch = useDispatch();
+
+
   return (
     <div className={styles.current__weather}>
+
+      <button className={styles.btn__search} onClick={()=> dispatch(cityActions.showCitySearch())}>Seach for places</button>
+
       <div
         className={
           props.weather.weather.code === 800
