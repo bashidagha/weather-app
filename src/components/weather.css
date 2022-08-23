@@ -2,3 +2,17 @@
     background: #100E1D;
     padding: 5rem 0;
 }
+
+@media (min-width:650px){
+    .weathers{
+        display: flex;
+    }
+
+    .current__weather{
+        width: 30%;
+    }
+
+    .weather__details{
+        width: 70%;
+    }
+}

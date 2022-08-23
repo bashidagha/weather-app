@@ -4,9 +4,9 @@ import { photoOfWeather } from "../utils/Utils";
 import "./dailyweather.css";
 
 const DailyWeather = (props) => {
-  const mainPhoto = photoOfWeather(props.weather.weather[0].id);
+  const mainPhoto = photoOfWeather(props.weather.weather.code);
 
-  const degree = props.weather.main.temp - 273.15;
+  const degree = props.weather.temp;
 
   const state = store.getState();
   const cityName = state.city.name;
@@ -26,7 +26,7 @@ const DailyWeather = (props) => {
         {degree.toFixed(0)}
         <span>&#8451;</span>
       </div>
-      <div className="current__condition">{props.weather.weather[0].main}</div>
+      <div className="current__condition">{props.weather.weather.description}</div>
 
       <div className="current__otherdata">
         <p>Today&nbsp;&nbsp;&#8226;&nbsp;&nbsp;{monthPlusDay}</p>

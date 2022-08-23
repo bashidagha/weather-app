@@ -1,0 +1,50 @@
+{
+    "data": [
+    {
+    "wind_cdir": "S",
+    "rh": 13,
+    "pod": "d",
+    "lon": 51.42151,
+    "pres": 888,
+    "timezone": "Asia/Tehran",
+    "ob_time": "2022-08-23 13:30",
+    "country_code": "IR",
+    "clouds": 0,
+    "ts": 1661261400,
+    "solar_rad": 406.3,
+    "state_code": "26",
+    "city_name": "Tehran",
+    "wind_spd": 3.1,
+    "slp": 1015,
+    "wind_cdir_full": "south",
+    "sunrise": "02:00",
+    "app_temp": 29,
+    "dni": 743.69,
+    "vis": 16,
+    "sources": [
+    "OIII"
+    ],
+    "h_angle": 51.4,
+    "dewpt": -0.6,
+    "snow": 0,
+    "aqi": 153,
+    "dhi": 84.22,
+    "wind_dir": 190,
+    "elev_angle": 26.17,
+    "ghi": 406.32,
+    "precip": 0,
+    "sunset": "15:14",
+    "lat": 35.69439,
+    "uv": 2.78079,
+    "datetime": "2022-08-23:13",
+    "temp": 31,
+    "weather": {
+    "icon": "c01d",
+    "code": 800,
+    "description": "Clear sky"
+    },
+    "station": "OIII"
+    }
+    ],
+    "count": 1
+    }

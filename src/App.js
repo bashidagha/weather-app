@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchCityCurrentWeather());
     dispatch(fetchCityWeather());
-  }, [dispatch]);
+  }, []);
 
   return (
     <div>

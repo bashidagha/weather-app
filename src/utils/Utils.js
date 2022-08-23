@@ -79,7 +79,7 @@ export function ExtractDateInfo(dateSecond) {
   };
 }
 
-export function Extract5DayWeather(data3HoursForecast) {
+export function Extract5DayWeather(dataForecast) {
   const state = store.getState();
   const current = state.city.currentDate;
   let temp;
@@ -87,24 +87,22 @@ export function Extract5DayWeather(data3HoursForecast) {
   let count = 0;
 
   const daysFormatted = formattedDayNames(current);
+  const days5Forecast = dataForecast.slice(1,6)
 
-  for (let i = 0; i < 40; i++) {
-    temp = ExtractDateInfo(data3HoursForecast.list[i].dt);
+  for(let i=0; i<5 ; i++){
 
-    if (
-      (temp.day !== current.day && temp.hours === 9) ||
-      temp.hours === 10 ||
-      temp.hours === 11
-    ) {
-      extractedDate[count] = {
-        ...data3HoursForecast.list[i],
-        dayName: daysFormatted[count],
-        month: temp.month,
-        dayofMonth: temp.dayOfMonth,
-      };
-      count++;
-    }
+    temp = ExtractDateInfo(days5Forecast[i].ts);
+
+
+    extractedDate[count] = {
+      ...days5Forecast[i],
+      dayName: daysFormatted[count],
+      month: temp.month,
+      dayofMonth: temp.dayOfMonth,
+    };
+    count++;
   }
+
 
   return extractedDate;
 }
