@@ -1,6 +1,7 @@
 import React from "react";
 import { photoOfWeather } from "../utils/Utils";
-import "./singledayweather.css";
+import styles from './singledayweather.module.css';
+
 
 const SingleDayWeather = (props) => {
   const template = props.weathers.map((day) => {
@@ -16,9 +17,9 @@ const SingleDayWeather = (props) => {
   });
 
   return (
-    <div className="singles">
+    <div className={styles.singles}>
       {template.map((day) => (
-        <div className="single__item">
+        <div className={styles.single__item}>
           <p>{day.dayName}</p>
           <img src={day.photo} alt="photo"></img>
           <div>

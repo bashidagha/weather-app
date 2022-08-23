@@ -4,7 +4,7 @@ import { Extract5DayWeather } from "../utils/Utils";
 import DailyWeather from "./DailyWeather";
 import SingleDayWeather from "./SingleDayWeather";
 import TodayWeatherHighlight from "./TodayWeatherHighlight";
-import "./weather.css";
+import styles from "./weather.module.css";
 
 const Weather = () => {
   const dataForecast = useSelector((state) => state.city.cityForecastWeather);
@@ -15,14 +15,18 @@ const Weather = () => {
     const showndata = Extract5DayWeather(dataForecast);
 
     return (
-      <div className="weathers">
+      <div className={styles.weathers}>
         <DailyWeather weather={currentWeather} />
 
-        <section className="weather__details">
+        <section className={styles.weather__details}>
           <SingleDayWeather weathers={showndata} />
 
-          <TodayWeatherHighlight weather={currentWeather}/>
+          <TodayWeatherHighlight weather={currentWeather} />
 
+          <div className={styles.footer__owner}>
+            created by <a href="https://github.com/bashidagha">bashidagha</a> -
+            devChallenges.io
+          </div>
 
         </section>
       </div>

@@ -17,3 +17,9 @@
     max-width: 6.2rem;
     margin-bottom: 2rem;
 }
+
+@media (min-width: 650px) {
+    .singles {
+     flex-wrap: nowrap;
+    }
+  }
