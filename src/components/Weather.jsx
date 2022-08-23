@@ -18,6 +18,8 @@ const Weather = () => {
       <div className={styles.weathers}>
         <DailyWeather weather={currentWeather} />
 
+        
+
         <section className={styles.weather__details}>
           <Forecast5DayWeather weathers={showndata} />
 

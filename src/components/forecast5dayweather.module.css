@@ -1,9 +1,9 @@
 .singles {
   display: flex;
   flex-wrap: wrap;
-  gap: 2.5rem;
+  gap: 1rem;
   margin: 0 auto;
-  width: 90%;
+  justify-content: space-between;
 }
 
 .single__item {
