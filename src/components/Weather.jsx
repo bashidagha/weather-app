@@ -3,38 +3,37 @@ import { useSelector } from "react-redux";
 import { Extract5DayWeather } from "../utils/Utils";
 import DailyWeather from "./DailyWeather";
 import SingleDayWeather from "./SingleDayWeather";
-import './weather.css'
-
+import TodayWeatherHighlight from "./TodayWeatherHighlight";
+import styles from "./weather.module.css";
 
 const Weather = () => {
-  const data3HoursForecast = useSelector(
-    (state) => state.city.cityForecastWeather
-  );
+  const dataForecast = useSelector((state) => state.city.cityForecastWeather);
 
-  const currentWeather = useSelector(
-    (state) => state.city.cityCurrentWeather
-  );
+  const currentWeather = useSelector((state) => state.city.cityCurrentWeather);
 
   function WeatherForecastDays() {
-    const showndata = Extract5DayWeather(data3HoursForecast);
-
+    const showndata = Extract5DayWeather(dataForecast);
 
     return (
-      <>
-      
-          <DailyWeather weather={currentWeather}/>
-        
-        <section className="weather__details">
-        <SingleDayWeather weathers={showndata}/>
-        </section>
+      <div className={styles.weathers}>
+        <DailyWeather weather={currentWeather} />
 
-        
-                
-      </>
+        <section className={styles.weather__details}>
+          <SingleDayWeather weathers={showndata} />
+
+          <TodayWeatherHighlight weather={currentWeather} />
+
+          <div className={styles.footer__owner}>
+            created by <a href="https://github.com/bashidagha">bashidagha</a> -
+            devChallenges.io
+          </div>
+
+        </section>
+      </div>
     );
   }
 
-  return <>{currentWeather && data3HoursForecast && <WeatherForecastDays />}</>;
+  return <>{currentWeather && dataForecast && <WeatherForecastDays />}</>;
 };
 
 export default Weather;

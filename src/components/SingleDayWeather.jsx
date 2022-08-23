@@ -1,35 +1,25 @@
 import React from "react";
 import { photoOfWeather } from "../utils/Utils";
-import './singledayweather.css'
+import styles from './singledayweather.module.css';
+
 
 const SingleDayWeather = (props) => {
-
-
-  console.log(props.weathers)
-
   const template = props.weathers.map((day) => {
     return {
       dayName:
         day.dayName === "Tomorrow" ? "Tomorrow" : day.dayName.slice(0, 3),
       dayOfMonth: day.dayofMonth,
       month: day.month.slice(0, 3),
-      photo: photoOfWeather(day.weather[0].id),
-      tempmin: (day.main.temp_min - 273.15).toFixed(0),
-      tempmax: (day.main.temp_max - 273.15).toFixed(0),
+      photo: photoOfWeather(day.weather.code),
+      tempmin: Math.round(day.min_temp),
+      tempmax: Math.round(day.max_temp),
     };
   });
 
-  console.log(template);
-
-  // const monthPlusDay = `${a.day.slice(0, 3)},${a.dayOfMonth} ${a.month.slice(
-  //   0,
-  //   3
-  // )}`;
-
   return (
-    <div className="singles">
+    <div className={styles.singles}>
       {template.map((day) => (
-        <div className="single__item">
+        <div className={styles.single__item}>
           <p>{day.dayName}</p>
           <img src={day.photo} alt="photo"></img>
           <div>

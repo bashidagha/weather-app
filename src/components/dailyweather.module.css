@@ -10,6 +10,7 @@
 .current__photo {
   width: 12rem;
   display: block;
+  
   margin: 0 auto;
 }
 
@@ -54,9 +55,14 @@
   text-align: center;
 }
 
+.current__otherdata span {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+  vertical-align: bottom;
+}
 
-.current__otherdata span{
-    font-size: 2rem;
-    margin-right: 0.5rem;
-    vertical-align: bottom;
+@media (min-width: 650px) {
+  .current__weather {
+    width: 30%;
+  }
 }
