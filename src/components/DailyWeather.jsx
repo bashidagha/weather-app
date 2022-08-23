@@ -23,7 +23,7 @@ const DailyWeather = (props) => {
         className={
           props.weather.weather.code === 800
             ? styles.current__bg
-            : styles.current__bg__image
+            : `${styles.current__bg} ${styles.current__bg__image}`
         }
       >
         <img src={mainPhoto} alt="main" className={styles.current__photo}></img>
