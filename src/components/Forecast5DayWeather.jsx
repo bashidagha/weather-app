@@ -18,7 +18,7 @@ const Forecast5DayWeather = (props) => {
   return (
     <div className={styles.singles}>
       {template.map((day) => (
-        <div className={styles.single__item}>
+        <div className={styles.single__item} key={day.dayName}>
           <p>
             {day.dayName === "Tomorrow"
               ? "Tomorrow"

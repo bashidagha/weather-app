@@ -1,8 +1,7 @@
 import React from "react";
 import store from "../store/index";
 import { photoOfWeather } from "../utils/Utils";
-import styles from './dailyweather.module.css';
-
+import styles from "./dailyweather.module.css";
 
 const DailyWeather = (props) => {
   const mainPhoto = photoOfWeather(props.weather.weather.icon);
@@ -20,14 +19,22 @@ const DailyWeather = (props) => {
 
   return (
     <div className={styles.current__weather}>
-      <div className={styles.current__bg}>
+      <div
+        className={
+          props.weather.weather.code === 800
+            ? styles.current__bg
+            : styles.current__bg__image
+        }
+      >
         <img src={mainPhoto} alt="main" className={styles.current__photo}></img>
       </div>
       <div className={styles.current__degree}>
         {degree.toFixed(0)}
         <span>&#8451;</span>
       </div>
-      <div className={styles.current__condition}>{props.weather.weather.description}</div>
+      <div className={styles.current__condition}>
+        {props.weather.weather.description}
+      </div>
 
       <div className={styles.current__otherdata}>
         <p>Today&nbsp;&nbsp;&#8226;&nbsp;&nbsp;{monthPlusDay}</p>

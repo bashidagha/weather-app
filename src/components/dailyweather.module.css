@@ -13,8 +13,19 @@
   margin: 0 auto;
 }
 
-.current__bg {
+.current__bg__image {
   background-image: url("../assets/Cloud-background.png");
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: var(---color-bg);
+  background-blend-mode: overlay;
+  background-position: top;
+  padding: 3rem 0 8rem 0;
+  text-align: center;
+}
+
+.current__bg {
   width: 100%;
   background-repeat: no-repeat;
   background-size: contain;

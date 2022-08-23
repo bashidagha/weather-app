@@ -15,7 +15,7 @@ const TodayWeatherHighlight = (props) => {
               <span> mph</span>
             </div>
             <p>
-              <span class="material-icons">air</span>
+              <span className="material-icons">air</span>
               {props.weather.wind_cdir_full}
             </p>
           </div>
