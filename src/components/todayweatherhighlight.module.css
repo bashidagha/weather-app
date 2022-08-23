@@ -19,6 +19,12 @@
   margin-bottom: 2rem;
 }
 
+.wind p span {
+  font-size: 1.5rem;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
 .today__highlight__container p {
   font-size: 16px;
   line-height: 19px;
