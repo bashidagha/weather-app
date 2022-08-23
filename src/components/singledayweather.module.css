@@ -21,5 +21,6 @@
 @media (min-width: 650px) {
     .singles {
      flex-wrap: nowrap;
+     
     }
   }
