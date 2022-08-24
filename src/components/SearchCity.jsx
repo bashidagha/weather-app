@@ -57,7 +57,7 @@ const SearchCity = () => {
         searchQueryList.map((s) => (
           <div
             className={styles.search__item}
-            id={s.lat}
+            key={s.lat}
             onClick={() =>
               changeCityHandler({ name: s.city, lat: s.lat, lon: s.lon })
             }
