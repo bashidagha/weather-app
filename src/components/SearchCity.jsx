@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   fetchCityCurrentWeather,
+  fetchCityWeather,
   searchSimilarCity,
 } from "../store/city-actions";
 import { cityActions } from "../store/city-slice";
@@ -30,6 +31,8 @@ const SearchCity = () => {
     dispatch(cityActions.setSimilarCity(null));
     dispatch(cityActions.changeCity(citySpec));
     dispatch(cityActions.hideCitySearch());
+    dispatch(fetchCityCurrentWeather());
+    dispatch(fetchCityWeather());
     setIsLoading(false);
   };
 

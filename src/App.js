@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 function App() {
   const dispatch = useDispatch();
 
-  let cityName = useSelector((state) => state.city.citySpec.name);
   let cityForecastWeather = useSelector(
     (state) => state.city.cityForecastWeather
   );
@@ -22,7 +21,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchCityCurrentWeather());
     dispatch(fetchCityWeather());
-  }, [cityName]);
+  }, []);
 
   return (
     <>{cityForecastWeather && cityCurrentWeather ? <Weather /> : <Loading />}</>
