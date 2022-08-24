@@ -27,7 +27,7 @@ const DailyWeather = (props) => {
   return (
     <div className={styles.current__weather}>
 
-      <button className={styles.btn__search} onClick={()=> dispatch(cityActions.showCitySearch())}>Seach for places</button>
+      <button className={styles.btn__search} onClick={()=> dispatch(cityActions.showCitySearch())}>Search for places</button>
 
       <div
         className={

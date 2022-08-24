@@ -1,0 +1,54 @@
+.search {
+  background-color: var(---color-bg);
+  padding: 1.8rem 2% 4rem 2%;
+}
+
+.btn__close {
+  display: block;
+  text-align: right;
+}
+
+form {
+  margin-top: 2rem;
+  display: flex;
+  gap: 4%;
+  position: relative;
+}
+
+form span{
+    position: absolute;
+    left: 2%;
+    top: 1.2rem;
+    color: var(---color-primary);
+}
+
+form input {
+  height: 4.8rem;
+  font-size: 16px;
+  line-height: 19px;
+  width: 70%;
+  border: 1px solid #e7e7eb;
+  background-color: transparent;
+  font-size: 16px;
+  line-height: 19px;
+  color: #616475;
+  padding-left: 10%;
+  outline: none;
+}
+
+form button {
+  height: 4.8rem;
+  font-size: 16px;
+  line-height: 19px;
+  background: #3c47e9;
+  border: none;
+  outline: none;
+  color: #e7e7eb;
+  width: 25%;
+}
+
+@media (min-width: 650px) {
+  .search {
+    width: 30%;
+  }
+}

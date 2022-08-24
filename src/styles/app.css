@@ -1,7 +1,13 @@
-:root{
-  ---color-primary: #E7E7EB;
-  ---color-secondary: #A09FB1;
-  ---color-bg: #1E213A;
+:root {
+  ---color-primary: #e7e7eb;
+  ---color-secondary: #a09fb1;
+  ---color-bg: #1e213a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
@@ -16,16 +22,16 @@ body {
   color: var(---color-primary);
 }
 
-.material-icons{
-  font-family: 'Material Icons';
+.material-icons {
+  font-family: "Material Icons";
 }
 
-.container{
+.container {
   max-width: 120rem;
   margin: 0 auto;
   width: 95%;
 }
 
-img{
+img {
   max-width: 100%;
 }

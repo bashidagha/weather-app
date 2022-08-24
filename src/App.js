@@ -12,12 +12,12 @@ function App() {
   useEffect(() => {
     dispatch(fetchCityCurrentWeather());
     dispatch(fetchCityWeather());
+    console.log('useEffect ran')
+
   }, []);
 
   return (
-    <div>
       <Weather />
-    </div>
   );
 }
 
