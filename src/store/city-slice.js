@@ -6,6 +6,7 @@ const citySlice = createSlice({
     name: "Tehran",
     citySearch: false,
     currentDate: null,
+    similarCity: null,
     cityForecastWeather: null,
     cityCurrentWeather: null,
   },
@@ -16,6 +17,10 @@ const citySlice = createSlice({
 
     setCityForecastWeather(state, action) {
       state.cityForecastWeather = action.payload;
+    },
+
+    setSimilarCity(state, action) {
+      state.similarCity = action.payload;
     },
 
     setCityCurrentWeather(state, action) {

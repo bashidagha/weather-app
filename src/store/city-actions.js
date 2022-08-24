@@ -25,7 +25,7 @@ export const fetchCityWeather = () => {
     try {
       const weatherData = await fetchData();
 
-      console.log('forecast fetched')
+      console.log("forecast fetched");
 
       dispatch(cityActions.setCityForecastWeather(weatherData.data));
     } catch (error) {
@@ -50,7 +50,6 @@ export const fetchCityCurrentWeather = () => {
       }
 
       const data = await response.json();
-      
 
       return data;
     };
@@ -58,13 +57,50 @@ export const fetchCityCurrentWeather = () => {
     try {
       const weatherData = await fetchData();
 
-      console.log('current fetched')
+      console.log("current fetched");
 
       dispatch(
         cityActions.setCurrentDate(ExtractDateInfo(weatherData.data[0].ts))
       );
 
       dispatch(cityActions.setCityCurrentWeather(weatherData.data[0]));
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+export const searchSimilarCity = (query) => {
+  return async (dispatch) => {
+    const fetchData = async () => {
+      const response = await fetch(
+        `https://api.openweathermap.org/geo/1.0/direct?appid=${process.env.REACT_APP_API_KEY2}&q=${query}&limit=8`
+      );
+
+      if (!response.ok) {
+        throw new Error("Could not fetch similar city.");
+      }
+
+      const data = await response.json();
+
+      return data;
+    };
+
+    try {
+
+      const similar = await fetchData();
+
+      const abstractSimilarCity = similar.map((w) => {
+        return {
+          city: w.name,
+          state: w.state,
+          country: w.country,
+          format: `${w.name}, ${w.state}, ${w.country}`,
+        };
+      });
+
+      dispatch(cityActions.setSimilarCity(abstractSimilarCity));
+
     } catch (error) {
       console.log(error.message);
     }

@@ -1,17 +1,24 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
+import {
+  fetchCityCurrentWeather,
+  searchSimilarCity,
+} from "../store/city-actions";
 import { cityActions } from "../store/city-slice";
 import styles from "./searchcity.module.css";
+import store from "../store";
 
 const SearchCity = () => {
   const dispatch = useDispatch();
 
   const searchCityRef = useRef();
 
+  const state = store.getState();
+  const searchQueryList = state.city.similarCity;
+
   const searchCityHandler = (event) => {
     event.preventDefault();
-    dispatch(cityActions.changeCity(searchCityRef.current.value));
-    dispatch(cityActions.hideCitySearch());
+    dispatch(searchSimilarCity(searchCityRef.current.value));
   };
 
   return (
@@ -24,10 +31,17 @@ const SearchCity = () => {
       </span>
 
       <form>
-        <input placeholder="search location" ref={searchCityRef} type="text" required></input>
+        <input
+          placeholder="search location"
+          ref={searchCityRef}
+          type="text"
+          required
+        ></input>
         <button type="submit">Search</button>
         <span className="material-icons">search</span>
       </form>
+
+      {searchQueryList && searchQueryList.map((s) => <div>{s.format}</div>)}
     </div>
   );
 };
