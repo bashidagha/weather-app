@@ -26,7 +26,7 @@ const SearchCity = () => {
       <form>
         <input placeholder="search location" ref={searchCityRef} type="text" required></input>
         <button type="submit">Search</button>
-        <span class="material-icons">search</span>
+        <span className="material-icons">search</span>
       </form>
     </div>
   );

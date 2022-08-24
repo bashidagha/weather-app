@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Weather from "./components/Weather";
+import store from "./store";
 import {
   fetchCityCurrentWeather,
   fetchCityWeather,
@@ -14,7 +15,7 @@ function App() {
     dispatch(fetchCityWeather());
     console.log('useEffect ran')
 
-  }, []);
+  }, [dispatch]);
 
   return (
       <Weather />
