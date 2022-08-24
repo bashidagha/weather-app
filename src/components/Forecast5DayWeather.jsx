@@ -22,7 +22,7 @@ const Forecast5DayWeather = (props) => {
           <p>
             {day.dayName === "Tomorrow"
               ? "Tomorrow"
-              : `${day.dayName}, ${day.dayOfMonth}${day.month}`}
+              : `${day.dayName}, ${day.dayOfMonth} ${day.month}`}
           </p>
 
           <img src={day.photo} alt="photo"></img>

@@ -25,8 +25,6 @@ export const fetchCityWeather = () => {
     try {
       const weatherData = await fetchData();
 
-      console.log("forecast fetched");
-
       dispatch(cityActions.setCityForecastWeather(weatherData.data));
     } catch (error) {
       console.log(error.message);
@@ -56,8 +54,6 @@ export const fetchCityCurrentWeather = () => {
 
     try {
       const weatherData = await fetchData();
-
-      console.log("current fetched");
 
       dispatch(
         cityActions.setCurrentDate(ExtractDateInfo(weatherData.data[0].ts))

@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem;
   padding: 1.8rem 0 4rem 0;
 }
 
@@ -24,7 +24,7 @@
   background-color: var(---color-bg);
   background-blend-mode: overlay;
   background-position: top;
-  padding: 3rem 0 8rem 0;
+  padding: 3rem 0 4rem 0;
   text-align: center;
 }
 
@@ -76,5 +76,7 @@
 @media (min-width: 650px) {
   .current__weather {
     width: 30%;
+    gap: 3rem;
   }
+  
 }

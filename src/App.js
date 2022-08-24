@@ -22,7 +22,6 @@ function App() {
   useEffect(() => {
     dispatch(fetchCityCurrentWeather());
     dispatch(fetchCityWeather());
-    console.log("useEffect ran");
   }, [cityName]);
 
   return (

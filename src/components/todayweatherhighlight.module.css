@@ -90,12 +90,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .today__highlight h2 {
+    margin-top: 10rem;
   }
 
   .wind,
   .visible,
   .humid,
   .pressure {
-    width: 35%;
+    width: 48%;
+    max-width: 40rem;
   }
 }

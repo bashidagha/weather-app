@@ -57,12 +57,13 @@ const SearchCity = () => {
         searchQueryList.map((s) => (
           <div
             className={styles.search__item}
+            id={s.lat}
             onClick={() =>
               changeCityHandler({ name: s.city, lat: s.lat, lon: s.lon })
             }
           >
             {s.format}
-            <span class="material-icons">chevron_right</span>
+            <span className="material-icons">chevron_right</span>
           </div>
         ))}
 

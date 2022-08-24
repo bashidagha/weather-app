@@ -10,7 +10,7 @@
   background: var(---color-bg);
   text-align: center;
   padding: 2rem 1.6rem;
-  width: 30%;
+  width: 45%;
 }
 
 .single__item * {
@@ -28,7 +28,11 @@
 }
 
 @media (min-width: 650px) {
+  .single__item {
+    width: 100%;
+    max-width: 13rem;
+  }
   .singles {
-    flex-wrap: nowrap;
+    justify-content: flex-start;
   }
 }
