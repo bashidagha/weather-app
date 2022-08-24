@@ -11,7 +11,7 @@ const DailyWeather = (props) => {
 
   const degree = props.weather.temp;
 
-  const cityName = useSelector((state)=>state.city.name)
+  const cityName = useSelector((state)=>state.city.citySpec.name)
   const a = useSelector((state)=>state.city.currentDate)
 
 

@@ -4,13 +4,13 @@ import { ExtractDateInfo } from "../utils/Utils";
 
 export const fetchCityWeather = () => {
   const state = store.getState();
-  const cityName = state.city.name;
+  const citySpec = state.city.citySpec;
 
   return async (dispatch) => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:3000/temp.json`
-        // `https://api.weatherbit.io/v2.0/forecast/daily?city=${cityName}&days=6&key=${process.env.REACT_APP_API_KEY}`
+        // `http://localhost:3000/temp.json`
+        `https://api.weatherbit.io/v2.0/forecast/daily?lat=${citySpec.lat}&lon=${citySpec.lon}&days=6&key=${process.env.REACT_APP_API_KEY}`
       );
 
       if (!response.ok) {
@@ -36,13 +36,13 @@ export const fetchCityWeather = () => {
 
 export const fetchCityCurrentWeather = () => {
   const state = store.getState();
-  const cityName = state.city.name;
+  const citySpec = state.city.citySpec;
 
   return async (dispatch) => {
     const fetchData = async () => {
       const response = await fetch(
-        // `https://api.weatherbit.io/v2.0/current?city=${cityName}&key=${process.env.REACT_APP_API_KEY}`
-        `http://localhost:3000/temp2.json`
+        `https://api.weatherbit.io/v2.0/current?lat=${citySpec.lat}&lon=${citySpec.lon}&key=${process.env.REACT_APP_API_KEY}`
+        // `http://localhost:3000/temp2.json`
       );
 
       if (!response.ok) {
@@ -87,20 +87,18 @@ export const searchSimilarCity = (query) => {
     };
 
     try {
-
       const similar = await fetchData();
 
       const abstractSimilarCity = similar.map((w) => {
         return {
           city: w.name,
-          state: w.state,
-          country: w.country,
-          format: `${w.name}, ${w.state?`${w.state}, `:""}${w.country}`,
+          format: `${w.name}, ${w.state ? `${w.state}, ` : ""}${w.country}`,
+          lat: w.lat,
+          lon: w.lon,
         };
       });
 
       dispatch(cityActions.setSimilarCity(abstractSimilarCity));
-
     } catch (error) {
       console.log(error.message);
     }

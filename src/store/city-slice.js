@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const citySlice = createSlice({
   name: "city",
   initialState: {
-    name: "Tehran",
+    citySpec: { name: "Tehran", lat: 35.6892523, lon: 51.3896004 },
     citySearch: false,
     currentDate: null,
     similarCity: null,
@@ -12,7 +12,7 @@ const citySlice = createSlice({
   },
   reducers: {
     changeCity(state, action) {
-      state.name = action.payload;
+      state.citySpec = action.payload;
     },
 
     setCityForecastWeather(state, action) {

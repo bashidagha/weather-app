@@ -11,7 +11,7 @@ const TodayWeatherHighlight = (props) => {
           <div className={styles.wind}>
             <p>Wind status</p>
             <div className={styles.in}>
-              {props.weather.wind_spd}
+              {Math.round(props.weather.wind_spd)}
               <span> mph</span>
             </div>
             <p>
@@ -23,7 +23,7 @@ const TodayWeatherHighlight = (props) => {
           <div className={styles.humid}>
             <p>Humidity</p>
             <div className={styles.in}>
-              {props.weather.rh}
+              {Math.round(props.weather.rh)}
               <span> %</span>
             </div>
 
@@ -48,7 +48,7 @@ const TodayWeatherHighlight = (props) => {
           <div className={styles.pressure}>
             <p>Air Pressure</p>
             <div className={styles.in}>
-              {props.weather.pres}
+              {Math.round(props.weather.pres)}
               <span> mb</span>
             </div>
           </div>

@@ -10,6 +10,8 @@ import store from "../store";
 import { useSelector } from "react-redux";
 
 const SearchCity = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const dispatch = useDispatch();
 
   const searchCityRef = useRef();
@@ -18,12 +20,17 @@ const SearchCity = () => {
 
   const searchCityHandler = (event) => {
     event.preventDefault();
+    setIsLoading(true);
     dispatch(searchSimilarCity(searchCityRef.current.value));
   };
 
-  const changeCityHandler = (name) => {
-    dispatch(cityActions.changeCity(name));
-    dispatch(cityActions.hideCitySearch())
+  const changeCityHandler = (citySpec) => {
+    dispatch(cityActions.setCityCurrentWeather(null));
+    dispatch(cityActions.setCityForecastWeather(null));
+    dispatch(cityActions.setSimilarCity(null));
+    dispatch(cityActions.changeCity(citySpec));
+    dispatch(cityActions.hideCitySearch());
+    setIsLoading(false);
   };
 
   return (
@@ -50,12 +57,18 @@ const SearchCity = () => {
         searchQueryList.map((s) => (
           <div
             className={styles.search__item}
-            onClick={() => changeCityHandler(s.city)}
+            onClick={() =>
+              changeCityHandler({ name: s.city, lat: s.lat, lon: s.lon })
+            }
           >
             {s.format}
             <span class="material-icons">chevron_right</span>
           </div>
         ))}
+
+      {!searchQueryList && isLoading && (
+        <div className={styles.search__item}>Loading...</div>
+      )}
     </div>
   );
 };
