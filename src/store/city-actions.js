@@ -95,7 +95,7 @@ export const searchSimilarCity = (query) => {
           city: w.name,
           state: w.state,
           country: w.country,
-          format: `${w.name}, ${w.state}, ${w.country}`,
+          format: `${w.name}, ${w.state?`${w.state}, `:""}${w.country}`,
         };
       });
 

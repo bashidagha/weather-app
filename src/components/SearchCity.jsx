@@ -14,12 +14,16 @@ const SearchCity = () => {
 
   const searchCityRef = useRef();
 
-  const searchQueryList = useSelector((state)=>state.city.similarCity)
-
+  const searchQueryList = useSelector((state) => state.city.similarCity);
 
   const searchCityHandler = (event) => {
     event.preventDefault();
     dispatch(searchSimilarCity(searchCityRef.current.value));
+  };
+
+  const changeCityHandler = (name) => {
+    dispatch(cityActions.changeCity(name));
+    dispatch(cityActions.hideCitySearch())
   };
 
   return (
@@ -42,7 +46,16 @@ const SearchCity = () => {
         <span className="material-icons">search</span>
       </form>
 
-      {searchQueryList && searchQueryList.map((s) => <div>{s.format}</div>)}
+      {searchQueryList &&
+        searchQueryList.map((s) => (
+          <div
+            className={styles.search__item}
+            onClick={() => changeCityHandler(s.city)}
+          >
+            {s.format}
+            <span class="material-icons">chevron_right</span>
+          </div>
+        ))}
     </div>
   );
 };

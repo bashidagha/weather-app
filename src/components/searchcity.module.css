@@ -11,16 +11,17 @@
 
 form {
   margin-top: 4rem;
+  margin-bottom: 2rem;
   display: flex;
   gap: 4%;
   position: relative;
 }
 
-form span{
-    position: absolute;
-    left: 2%;
-    top: 1.2rem;
-    color: var(---color-primary);
+form span {
+  position: absolute;
+  left: 2%;
+  top: 1.2rem;
+  color: var(---color-primary);
 }
 
 form input {
@@ -48,11 +49,40 @@ form button {
   width: 25%;
 }
 
+.search__item {
+  font-size: 16px;
+  line-height: 19px;
+  padding: 2.2rem 1.2rem;
+  cursor: pointer;
+}
+
+.search__item + .search__item {
+  margin-top: 1rem;
+}
+
+.search__item span {
+  font-size: 2rem;
+  vertical-align: middle;
+  float: right;
+  opacity: 0;
+}
+
+.search__item:hover {
+  border: 1px solid #616475;
+}
+
+.search__item:hover span {
+  font-size: 2rem;
+  vertical-align: middle;
+  float: right;
+  opacity: 1;
+}
+
 @media (max-width: 650px) {
-    .search {
-      height: 100vh;
-    }
+  .search {
+    height: 100vh;
   }
+}
 
 @media (min-width: 650px) {
   .search {
