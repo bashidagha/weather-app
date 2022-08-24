@@ -3,17 +3,16 @@ import { useDispatch } from "react-redux";
 import store from "../store/index";
 import { photoOfWeather } from "../utils/Utils";
 import styles from "./dailyweather.module.css";
-import {showCitySearch} from '../store/city-actions'
 import { cityActions } from "../store/city-slice";
+import { useSelector } from "react-redux";
 
 const DailyWeather = (props) => {
   const mainPhoto = photoOfWeather(props.weather.weather.icon);
 
   const degree = props.weather.temp;
 
-  const state = store.getState();
-  const cityName = state.city.name;
-  const a = state.city.currentDate;
+  const cityName = useSelector((state)=>state.city.name)
+  const a = useSelector((state)=>state.city.currentDate)
 
 
   const monthPlusDay = `${a.day.slice(0, 3)},${a.dayOfMonth} ${a.month.slice(

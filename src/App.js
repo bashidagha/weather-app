@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Weather from "./components/Weather";
-import store from "./store";
 import {
   fetchCityCurrentWeather,
   fetchCityWeather,

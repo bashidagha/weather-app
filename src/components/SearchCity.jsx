@@ -7,14 +7,15 @@ import {
 import { cityActions } from "../store/city-slice";
 import styles from "./searchcity.module.css";
 import store from "../store";
+import { useSelector } from "react-redux";
 
 const SearchCity = () => {
   const dispatch = useDispatch();
 
   const searchCityRef = useRef();
 
-  const state = store.getState();
-  const searchQueryList = state.city.similarCity;
+  const searchQueryList = useSelector((state)=>state.city.similarCity)
+
 
   const searchCityHandler = (event) => {
     event.preventDefault();
